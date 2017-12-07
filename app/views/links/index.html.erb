@@ -1,28 +1,56 @@
-
 <% @links.each_with_index do |link, index| %>
-<% if index.even? %>
-  <div class = "row col-md-12">
-      <div class = "col-md-6">
-        <div class="linke row clearfix">
-          <h2>
-            <%= link_to link.title, link %><br><br>
-          </h2>
-          </div>
-      </div>
-      <div class = "col-md-6">
-      </div>
-  </div>
-<% elsif index.odd? %>
-  <div class = "row col-md-12">
-      <div class = "col-md-6">
-      </div>
-      <div class = "col-md-6">
-        <div class="linko row clearfix">
-          <h2>
-            <%= link_to link.title, link %><br><br>
-          </h2>
-        </div>
-      </div>
+  <div class="clearfix">
+        <% if index.even? %>
+            <div class = "row col-md-12">
+                <div class = "col-md-6 abc">
+
+                  <div class="linke"> <%= link_to link.title, link %></div><br>
+                  <div class="tooltiptext"><i>Submitted by <%= link.user.email %></i></div>
+                  <div class="btn-group">
+                     <a class="btn btn-default btn-sm" href="<%= link.url %>">Visit Link</a>
+                       <%= link_to like_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
+                         <span class="glyphicon glyphicon-chevron-up"></span>
+                         Upvote
+                         <%= link.get_upvotes.size %>
+                       <% end %>
+                       <%= link_to dislike_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
+                         <span class="glyphicon glyphicon-chevron-down">
+                         Downvote
+                         <%= link.get_downvotes.size %>
+                       <% end %>
+                     </div>
+                 </div>
+
+              <div class = "col-md-6">
+              </div>
+            </div>
+
+    <% elsif index.odd? %>
+        <div class = "row col-md-12">
+
+            <div class = "col-md-6">
+            </div>
+
+            <div class = "col-md-6 abc">
+            <div class="linko"><%= link_to link.title, link %></div><br>
+            <div class="aligno tooltiptext"><i>Submitted by <%= link.user.email %></i></div>
+            <div class="btn-group aligno">
+                  <a class="btn btn-default btn-sm " href="<%= link.url %>">Visit Link</a>
+                  <%= link_to like_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
+                    <span class="glyphicon glyphicon-chevron-up"></span>
+                    Upvote
+                    <%= link.get_upvotes.size %>
+                  <% end %>
+                  <%= link_to dislike_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
+                    <span class="glyphicon glyphicon-chevron-down">
+                    Downvote
+                    <%= link.get_downvotes.size %>
+                  <% end %>
+                </div>
+            </div>
+       </div>
+
+
   </div>
 
 <% end%>

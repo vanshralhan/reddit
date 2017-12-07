@@ -14,8 +14,8 @@
 	  padding: 15px 0;
 		color: #2F363E;
     background-color: #A83E5;
-    // animation: shake 4.5s;
-    // animation-iteration-count: infinite;
+    animation: shake 4.5s;
+    animation-iteration-count: infinite;
  }
  a.head:hover{
    box-shadow: 0px 0px 150px #000000;
@@ -43,8 +43,8 @@
   letter-spacing: 2px;
 }
 a.abc:hover{
-box-shadow: 0px 0px 150px #000000;
- z-index: 2;
+  box-shadow: 0px 0px 150px #000000;
+  z-index: 2;
  -webkit-transition: all 200ms ease-in;
  -webkit-transform: scale(1.5);
  -ms-transition: all 200ms ease-in;
@@ -56,48 +56,48 @@ box-shadow: 0px 0px 150px #000000;
 }
 
 .full{
+  padding-top: 25px;
   padding-bottom: 100px;
   .linke{
-    font-size: 4px;
-    padding: 2em 1em;
-    border-bottom: 2px solid #e9e9e9;
+    font-size: 25px;
 
-    animation: shakele 5s;
-    animation-iteration-count: 10;
+    border-bottom: 2px solid #e9e9e9;
+    animation: shakele 3s;
+    animation-iteration-count: infinite;
     }
+
   .linko{
-    font-size: 4px;
-    padding: 2em 1em;
+    font-size: 25px;
     direction: rtl;
     border-bottom: 2px solid #e9e9e9;
 
     animation: shakeo 3s;
-    animation-iteration-count: 10;
+    animation-iteration-count: infinite;
     }
 }
-a.linke:hover{
-  box-shadow: 0px 0px 150px #000000;
-   z-index: 2;
-   -webkit-transition: all 200ms ease-in;
-   -webkit-transform: scale(1.5);
-   -ms-transition: all 200ms ease-in;
-   -ms-transform: scale(1.5);
-   -moz-transition: all 200ms ease-in;
-   -moz-transform: scale(1.5);
-   transition: all 200ms ease-in;
-   transform: scale(1.5);
+
+.link{
+  font-size: 25px;
+  border-bottom: 2px solid #e9e9e9;
 }
-a.linko:hover{
-  box-shadow: 0px 0px 150px #000000;
-   z-index: 2;
-   -webkit-transition: all 200ms ease-in;
-   -webkit-transform: scale(1.5);
-   -ms-transition: all 200ms ease-in;
-   -ms-transform: scale(1.5);
-   -moz-transition: all 200ms ease-in;
-   -moz-transform: scale(1.5);
-   transition: all 200ms ease-in;
-   transform: scale(1.5);
+
+
+.linke.tooltiptext {
+    visibility: hidden;
+    background-color: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+}
+
+.linke:hover .tooltiptext {
+    visibility: visible;
+}
+
+.aligno{
+  float: right;
 }
 @keyframes shake {
     0% { transform: translate(1px, 1px) rotate(0deg); }
@@ -114,8 +114,9 @@ a.linko:hover{
 }
 @keyframes shakele{
     0% { transform: translate(10px, 0px) rotate(0deg); }
-
+    60% { transform: translate(-10px, 0px) rotate(0deg); }
 }
 @keyframes shakeo{
     0% { transform: translate(-10px, 0px) rotate(0deg); }
+    60% { transform: translate(+10px, 0px) rotate(0deg); }
 }
