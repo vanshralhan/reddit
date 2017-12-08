@@ -1,11 +1,12 @@
 <% @links.each_with_index do |link, index| %>
-  <div class="clearfix">
+  <div>
         <% if index.even? %>
             <div class = "row col-md-12">
                 <div class = "col-md-6 abc">
 
-                  <div class="linke"> <%= link_to link.title, link %></div><br>
-                  <div class="tooltiptext"><i>Submitted by <%= link.user.email %></i></div>
+                  <div class="linke"> <%= link_to link.title, link %><br>
+                    <!-- <div class= "tooltipe"><i>Submitted by <%= link.user.email %></i></div> -->
+                    </div>
                   <div class="btn-group">
                      <a class="btn btn-default btn-sm" href="<%= link.url %>">Visit Link</a>
                        <%= link_to like_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
@@ -32,16 +33,17 @@
             </div>
 
             <div class = "col-md-6 abc">
-            <div class="linko"><%= link_to link.title, link %></div><br>
-            <div class="aligno tooltiptext"><i>Submitted by <%= link.user.email %></i></div>
+            <div class="linko"><%= link_to link.title, link %><br>
+            <!-- <div class="aligno tooltipo"><i>Submitted by <%= link.user.email %></i></div> -->
+            </div>
             <div class="btn-group aligno">
                   <a class="btn btn-default btn-sm " href="<%= link.url %>">Visit Link</a>
-                  <%= link_to like_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
+                   <%= link_to like_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
                     <span class="glyphicon glyphicon-chevron-up"></span>
                     Upvote
                     <%= link.get_upvotes.size %>
                   <% end %>
-                  <%= link_to dislike_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
+                   <%= link_to dislike_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
                     <span class="glyphicon glyphicon-chevron-down">
                     Downvote
                     <%= link.get_downvotes.size %>

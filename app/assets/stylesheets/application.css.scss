@@ -14,8 +14,8 @@
 	  padding: 15px 0;
 		color: #2F363E;
     background-color: #A83E5;
-    animation: shake 4.5s;
-    animation-iteration-count: infinite;
+    // animation: shake 4.5s;
+    // animation-iteration-count: infinite;
  }
  a.head:hover{
    box-shadow: 0px 0px 150px #000000;
@@ -56,12 +56,11 @@ a.abc:hover{
 }
 
 .full{
-  padding-top: 25px;
-  padding-bottom: 100px;
+
   .linke{
     font-size: 25px;
-
     border-bottom: 2px solid #e9e9e9;
+
     animation: shakele 3s;
     animation-iteration-count: infinite;
     }
@@ -82,19 +81,29 @@ a.abc:hover{
 }
 
 
-.linke.tooltiptext {
-    visibility: hidden;
-    background-color: black;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    position: absolute;
-    z-index: 1;
-}
-
-.linke:hover .tooltiptext {
-    visibility: visible;
-}
+// .linke .tooltipe {
+//     visibility: hidden;
+//     width: 450px;
+//     background-color: #45484A;
+//     color: #fff;
+//
+//     z-index: 1;
+//     left: 110%;
+// }
+// .linko .tooltipo {
+//     visibility: hidden;
+//     width: 425px;
+//     background-color: #45484A;
+//     color: #fff;
+//     z-index: 1;
+//     right: 110%;
+// }
+// .linke:hover .tooltipe {
+//     visibility: visible;
+// }
+// .linko:hover .tooltipo {
+//     visibility: visible;
+// }
 
 .aligno{
   float: right;
