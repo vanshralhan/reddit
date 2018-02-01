@@ -1,0 +1,22 @@
+.container-fluid
+  .row.menu
+    %ul.nav.nav-tabs
+      .col-md-6
+        %ul.nav.navbar-nav.navbar-left
+          %li
+            = link_to 'RaddiT', root_path, class: "head"
+      .col-md-6
+        -if user_signed_in?
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              = link_to 'Submit Link', new_link_path, class: "abc"
+            %li
+              = link_to 'Account', edit_user_registration_path, class: "abc"
+            %li
+              = link_to 'Sign Out', destroy_user_session_path, class: "abc out1", :method => :delete
+        - else
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              = link_to 'Sign Up', new_user_registration_path, class: "abc"
+            %li
+              = link_to 'Sign In', new_user_session_path, class: "abc"          

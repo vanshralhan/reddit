@@ -1,0 +1,53 @@
+%script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"}
+:javascript
+  $(document).ready(function(){
+      $("#add").click(function(){
+          $("#newform").toggle("slow");
+      });
+  });
+#content.center-block
+  - @links.each_with_index do |link, index|
+    %div
+      - if index.even?
+        .row.col-md-12
+          .col-md-6.abc
+            .linke
+              = link_to link.title, link
+              %br
+            .btn-group
+              %a.btn.btn-default.btn-sm{:href => "#{link.url}"} Visit Link
+              = link_to like_link_path(link), method: :put, class: "btn btn-default btn-sm" do
+                %span.glyphicon.glyphicon-chevron-up
+                Upvote
+                = link.get_upvotes.size
+              = link_to dislike_link_path(link), method: :put, class: "btn btn-default btn-sm" do
+                %span.glyphicon.glyphicon-chevron-down
+                Downvote
+                = link.get_downvotes.size
+          .col-md-6
+      - elsif index.odd?
+        .row.col-md-12
+          .col-md-6
+          .col-md-6.abc
+            .linko
+              = link_to link.title, link
+              %br
+            .btn-group.aligno
+            %a.btn.btn-default.btn-sm{:href => "#{link.url}"} Visit Link
+            = link_to like_link_path(link), method: :put, class: "btn btn-default btn-sm" do
+              %span.glyphicon.glyphicon-chevron-up
+              Upvote
+              = link.get_upvotes.size
+            = link_to dislike_link_path(link), method: :put, class: "btn btn-default btn-sm" do
+              %span.glyphicon.glyphicon-chevron-down
+              Downvote
+              = link.get_downvotes.size
+  .clearfix
+  %br
+  %div
+    %h3.newlink
+      Add Link
+      %span#add.glyphicon.glyphicon-chevron-down
+    #newform
+      &nbsp;&nbsp;
+      = render 'form', link: @link

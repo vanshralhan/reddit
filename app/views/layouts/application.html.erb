@@ -9,51 +9,17 @@
   </head>
 
   <body>
- <div class="container-fluid">
-	 <div class="row menu">
-     <ul class="nav nav-tabs">
-       <div class="col-md-6">
-         <ul class="nav navbar-nav navbar-left">
-           <li><%=link_to 'RaddiT', root_path, class: "head" %></li>
-         </ul>
-		    </div>
-
-       <div class="col-md-6">
-          <% if user_signed_in? %>
-             <ul class="nav navbar-nav navbar-right ">
-               <li><%= link_to 'Submit link', new_link_path, class: "abc"%></li>
-               <li><%= link_to 'Account', edit_user_registration_path, class: "abc"%></li>
-               <li><%= link_to 'Sign Out', destroy_user_session_path, class: "out1 abc", :method => :delete  %></li>
-             </ul>
-          <% else %>
-             <ul class = "nav navbar-nav navbar-right ">
-               <li><%= link_to 'Sign up', new_user_registration_path, class: "abc" %></li>
-               <li><%= link_to 'Sign in', new_user_session_path, class: "abc" %></li>
-             </ul>
-          <% end %>
-			 </div>
-      </ul>
+    <%= render 'links/header' %>
+    <br><br>
+    <div class = "full" >
+      <div class = "status">
+        <% flash.each do |name, msg| %>
+			    <%= content_tag(:div, msg, class: "alert alert-info") %>
+		    <% end %>
+      </div>
+      <div class="container">
+        <%= yield %>
+      </div>
     </div>
-
-  <br><br>
-
-    <div class = "row full" >
-        <div class = "status">
-          <% flash.each do |name, msg| %>
-			       <%= content_tag(:div, msg, class: "alert alert-info") %>
-		      <% end %>
-        </div>
-     <div class = "col-md-12 contain">
-      <div class = "col-md-2"></div>
-        <div class = "col-md-8">
-          <div id="content" class="center-block">
-            <%= yield %>
-          </div>
-        </div>
-      <div class = "col-md-2"></div>
-    </div>
-    </div>
- </div>
-
 </body>
 </html>

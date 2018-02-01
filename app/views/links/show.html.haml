@@ -1,0 +1,36 @@
+.page-header.link_to
+  %h1
+    %a{:href => "#{@link.url}"} #{@link.title}
+    %br
+    %small.sml
+      %i
+        Submitted by #{@link.user.name}
+.btn-grouphead
+  = link_to 'Visit Url', @link.url, class: "btn btn-primary"
+
+-if @link.user == current_user
+  .btn-group
+    = link_to 'Edit', edit_link_path(@link), class: "btn btn-default"
+    = link_to 'Destroy', @link, method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-default"
+
+.btn-group.pull-right
+  = link_to like_link_path(@link), method: :put, class: "btn btn-default btn-sm" do
+    %span.glyphicon.glyphicon-chevron-up
+    Upvote
+    #{@link.get_upvotes.size}
+  = link_to dislike_link_path(@link), methid: :put, class: "btn btn-default btn-sm" do
+    %span.glyphicon.glyphicon-chevron-down
+    Downvote
+    #{@link.get_downvotes.size}
+
+%h3.comments_title
+  #{@link.comments.count} Comments
+
+.comments
+  = render :partial => @link.comments
+
+= simple_form_for [@link, Comment.new] do |f|
+  .field
+    = f.text_area :body, class: "form-control"
+  %br
+  = f.submit "Add Comment", class: "btn primary"

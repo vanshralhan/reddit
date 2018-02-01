@@ -8,10 +8,15 @@
 
       <div class="form-inputs">
 
-        <div class="form-group">
-          <%= f.label :name %>
-          <%= f.text_field :name, class: "form-control", :autofocus => true %>
-        </div>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control", :autofocus => true %>
+      </div>
+
+      <div class="form-group">
+          <%= f.label :poster%>
+          <%= f.file_field :image, class: "form-control" %>
+      </div>
 
 
       <div class="form-group">
